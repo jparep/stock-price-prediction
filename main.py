@@ -11,4 +11,8 @@ diff_series = closing_prices.diff().dropna()
 
 # Fit ARIMA model
 model = ARIMA(diff_series, order=(5,1,0))
-model_fit = model.f
+model_fit = model.fit()
+
+# Forecast
+forecast = model_fit.forecast(steps=30)
+forecast_cumsum = forecast.cumsum() + closing_prices.iloc
