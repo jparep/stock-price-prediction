@@ -1,3 +1,7 @@
 import yfinance as yf
 data = yf.download('AAPL', start='2018-01-01', end='2024-01-01')
 data.to_csv('AAPL_stock_data.csv')
+
+# Load data
+data = pd.read_csv('AAPL_stock_data.csv', index_col='Date', parse_dates=True)
+closing_prices = data['Close']
