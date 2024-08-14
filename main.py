@@ -16,3 +16,10 @@ model_fit = model.fit()
 # Forecast
 forecast = model_fit.forecast(steps=30)
 forecast_cumsum = forecast.cumsum() + closing_prices.iloc
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(closing_prices, label='Historical')
+plt.plot(forecast_cumsum, label='Forecast', color='red')
+plt.legend()
+plt.show()
