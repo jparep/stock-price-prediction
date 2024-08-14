@@ -5,3 +5,6 @@ data.to_csv('AAPL_stock_data.csv')
 # Load data
 data = pd.read_csv('AAPL_stock_data.csv', index_col='Date', parse_dates=True)
 closing_prices = data['Close']
+
+# Differencing to make the series stationary
+diff_series = closing_prices.diff().dropna()
