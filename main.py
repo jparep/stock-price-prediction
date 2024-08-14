@@ -8,3 +8,7 @@ closing_prices = data['Close']
 
 # Differencing to make the series stationary
 diff_series = closing_prices.diff().dropna()
+
+# Fit ARIMA model
+model = ARIMA(diff_series, order=(5,1,0))
+model_fit = model.f
